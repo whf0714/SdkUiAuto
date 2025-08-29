@@ -1,0 +1,227 @@
+<root Version="1" GeneralType="StructTypes" Type="MPSizectorS_DotNet.SettingsStructType" Assembly="MPSizectorS_DotNet">
+    <BasicSetings GeneralType="StructTypes" Type="MPSizectorS_DotNet.BasicSettingsStructType" Assembly="MPSizectorS_DotNet">
+        <WorkingMode GeneralType="EnumTypes" Type="MPSizectorS_DotNet.WorkingModeType" Assembly="MPSizectorS_DotNet" Value="Fast3D" />
+        <HoldState GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="1" />
+        <BinningState GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="1" />
+        <ROIX0Ratio GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        <ROIY0Ratio GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        <ROIWidthRatio GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="255" />
+        <ROIHeightRatio GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="255" />
+        <TriggerSource GeneralType="EnumTypes" Type="MPSizectorS_DotNet.TriggerSourceType" Assembly="MPSizectorS_DotNet" Value="SoftTriggerOnly" />
+    </BasicSetings>
+    <ExposureSettings GeneralType="StructTypes" Type="MPSizectorS_DotNet.ExposureSettingsStructType" Assembly="MPSizectorS_DotNet">
+        <ExposureBasicSetting GeneralType="StructTypes" Type="MPSizectorS_DotNet.ExposureBasicSettingStructType" Assembly="MPSizectorS_DotNet">
+            <ExposureMode GeneralType="EnumTypes" Type="MPSizectorS_DotNet.ExposureModeType" Assembly="MPSizectorS_DotNet" Value="Manual" />
+            <ExposureNumber GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="1" />
+            <AutoHDRPriority GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="3" />
+            <AutoPHDRQuality GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="90" />
+        </ExposureBasicSetting>
+        <UserGain GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="3" />
+        <ExposureIntensity3D_1st GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="12" />
+        <ExposureIntensity3D_2nd GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="47.2" />
+        <ExposureIntensity3D_3rd GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="80.7" />
+        <ExposureIntensity2D GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="65" />
+        <MultiHeadExpoVarMode GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="15" />
+        <MultiHeadExpoVarRatio GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+    </ExposureSettings>
+    <ExternalExposureSettings GeneralType="StructTypes" Type="MPSizectorS_DotNet.ExternalExposureSettingsStructType" Assembly="MPSizectorS_DotNet">
+        <ExternalExposureEnable GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        <ExternalExposureGain GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="0" />
+        <ExternalExposureTimeWhite_us GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="700" />
+        <ExternalExposureTimeRed_us GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="800" />
+        <ExternalExposureTimeGreen_us GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="850" />
+        <ExternalExposureTimeBlue_us GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="750" />
+    </ExternalExposureSettings>
+    <ReconstructionSettings GeneralType="StructTypes" Type="MPSizectorS_DotNet.ReconstructionSettingsStructType" Assembly="MPSizectorS_DotNet">
+        <OverExposureFilterThreshold GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="254" />
+        <ValidPointThresholdMode GeneralType="EnumTypes" Type="MPSizectorS_HardwarePreprocessModeType" Assembly="MPSizectorS_DotNet" Value="Custom" />
+        <ValidPointThreshold0 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="2" />
+        <ValidPointThreshold1 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        <BurrFilterThresholdMode GeneralType="EnumTypes" Type="MPSizectorS_HardwarePreprocessModeType" Assembly="MPSizectorS_DotNet" Value="Custom" />
+        <BurrFilterThreshold0 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="13" />
+        <BurrFilterThreshold1 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="13" />
+        <PreProcessThresholdMode GeneralType="EnumTypes" Type="MPSizectorS_HardwarePreprocessModeType" Assembly="MPSizectorS_DotNet" Value="Custom" />
+        <PreProcessLoopNum GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="3" />
+        <PreProcessThreshold GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="20" />
+    </ReconstructionSettings>
+    <MultiHeadSettings GeneralType="StructTypes" Type="MPSizectorS_DotNet.MultiHeadSettingsStructType" Assembly="MPSizectorS_DotNet">
+        <ProjectionMode GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="15" />
+        <MergeParam0 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="20" />
+        <MergeParam1 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="33" />
+        <MergeParam2 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="2" />
+        <MergeThreshold GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="3" />
+    </MultiHeadSettings>
+    <PostProcessSettings GeneralType="StructTypes" Type="MPSizectorS_DotNet.PostProcessSettingsStructType" Assembly="MPSizectorS_DotNet">
+        <DataOutMode GeneralType="EnumTypes" Type="MPSizectorS_DotNet.DataOutModeType" Assembly="MPSizectorS_DotNet" Value="FixPointCloud" />
+        <UserRTMatrixEnableState GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        <UserRTMatrix GeneralType="StructTypes" Type="MPSizectorS_DotNet.RTMatrixStructType" Assembly="MPSizectorS_DotNet">
+            <R00 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0" />
+            <R01 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0" />
+            <R02 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0" />
+            <R10 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0" />
+            <R11 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0" />
+            <R12 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0" />
+            <R20 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0" />
+            <R21 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0" />
+            <R22 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0" />
+            <T0 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="4.384682e+036" />
+            <T1 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="4.384682e+036" />
+            <T2 GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="4.384682e+036" />
+        </UserRTMatrix>
+        <PointScaleSetting GeneralType="StructTypes" Type="MPSizectorS_DotNet.PointScaleSettingStructType" Assembly="MPSizectorS_DotNet">
+            <X0Pos GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="-65.2" />
+            <XIncrement GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0.001989776" />
+            <XReserved GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="NaN" />
+            <Y0Pos GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="-65" />
+            <YIncrement GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0.001983673" />
+            <YReserved GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="NaN" />
+            <Z0Pos GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="-32.6" />
+            <ZIncrement GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="0.0009948881" />
+        </PointScaleSetting>
+        <RangeCheckEnableState GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="1" />
+        <RangeCheckSetting GeneralType="StructTypes" Type="MPSizectorS_DotNet.RangeCheckSettingStructType" Assembly="MPSizectorS_DotNet">
+            <UXmax GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="65.2" />
+            <UXmin GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="-65.2" />
+            <UYmax GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="65" />
+            <UYmin GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="-65" />
+            <UZmax GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="32.6" />
+            <UZmin GeneralType="PrimitiveTypes" Type="System.Single" Assembly="mscorlib" Value="-32.6" />
+        </RangeCheckSetting>
+    </PostProcessSettings>
+    <IOSettings GeneralType="StructTypes" Type="MPSizectorS_DotNet.IOSettingsStructType" Assembly="MPSizectorS_DotNet">
+        <EXTIOOutput GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        <EXTIOO0Setting GeneralType="StructTypes" Type="MPSizectorS_DotNet.OutputPinSettingStructType" Assembly="MPSizectorS_DotNet">
+            <PinMode GeneralType="EnumTypes" Type="MPSizectorS_DotNet.OutputPinModeType" Assembly="MPSizectorS_DotNet" Value="UserControlled" />
+            <IsReversedForSpecialFunction GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        </EXTIOO0Setting>
+        <EXTIOO1Setting GeneralType="StructTypes" Type="MPSizectorS_DotNet.OutputPinSettingStructType" Assembly="MPSizectorS_DotNet">
+            <PinMode GeneralType="EnumTypes" Type="MPSizectorS_DotNet.OutputPinModeType" Assembly="MPSizectorS_DotNet" Value="UserControlled" />
+            <IsReversedForSpecialFunction GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        </EXTIOO1Setting>
+        <HWTriggerSeting GeneralType="StructTypes" Type="MPSizectorS_DotNet.HWTriggerSettingStructType" Assembly="MPSizectorS_DotNet">
+            <IsReversed GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+            <DelayIn100us GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="50" />
+        </HWTriggerSeting>
+    </IOSettings>
+    <GeneralSettings GeneralType="StructTypes" Type="MPSizectorS_DotNet.GeneralSettingsStructType" Assembly="MPSizectorS_DotNet">
+        <AutoSleepEnableState GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        <AutoSleepDelayMS GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="5000" />
+    </GeneralSettings>
+    <CorrectDistortionEnable GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+    <ExpertSettings GeneralType="StructTypes" Type="MPSizectorS_DotNet.ExpertSettingsStructType" Assembly="MPSizectorS_DotNet">
+        <ExpROINum GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        <ExpROIs GeneralType="ArrayTypes" Type="MPSizectorS_DotNet.ExpROIStructType[]" Assembly="MPSizectorS_DotNet">
+            <Item GeneralType="StructTypes" Type="MPSizectorS_DotNet.ExpROIStructType" Assembly="MPSizectorS_DotNet">
+                <ExpROIXCenter GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="8191" />
+                <ExpROIYCenter GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="4095" />
+                <ExpROIWidth GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="8191" />
+                <ExpROIHeight GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="4095" />
+                <shapeType GeneralType="EnumTypes" Type="MPSizectorS_DotNet.ExpROIShapeType" Assembly="MPSizectorS_DotNet" Value="Circle" />
+                <IsBase GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="1" />
+                <Polarity GeneralType="EnumTypes" Type="MPSizectorS_DotNet.ExpROIPropertyType" Assembly="MPSizectorS_DotNet" Value="Positive" />
+            </Item>
+            <Item GeneralType="StructTypes" Type="MPSizectorS_DotNet.ExpROIStructType" Assembly="MPSizectorS_DotNet">
+                <ExpROIXCenter GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="8191" />
+                <ExpROIYCenter GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="4095" />
+                <ExpROIWidth GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="8191" />
+                <ExpROIHeight GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="4095" />
+                <shapeType GeneralType="EnumTypes" Type="MPSizectorS_DotNet.ExpROIShapeType" Assembly="MPSizectorS_DotNet" Value="Circle" />
+                <IsBase GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="1" />
+                <Polarity GeneralType="EnumTypes" Type="MPSizectorS_DotNet.ExpROIPropertyType" Assembly="MPSizectorS_DotNet" Value="Positive" />
+            </Item>
+            <Item GeneralType="StructTypes" Type="MPSizectorS_DotNet.ExpROIStructType" Assembly="MPSizectorS_DotNet">
+                <ExpROIXCenter GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="8191" />
+                <ExpROIYCenter GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="4095" />
+                <ExpROIWidth GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="8191" />
+                <ExpROIHeight GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="4095" />
+                <shapeType GeneralType="EnumTypes" Type="MPSizectorS_DotNet.ExpROIShapeType" Assembly="MPSizectorS_DotNet" Value="Circle" />
+                <IsBase GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="1" />
+                <Polarity GeneralType="EnumTypes" Type="MPSizectorS_DotNet.ExpROIPropertyType" Assembly="MPSizectorS_DotNet" Value="Positive" />
+            </Item>
+            <Item GeneralType="StructTypes" Type="MPSizectorS_DotNet.ExpROIStructType" Assembly="MPSizectorS_DotNet">
+                <ExpROIXCenter GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="8191" />
+                <ExpROIYCenter GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="4095" />
+                <ExpROIWidth GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="8191" />
+                <ExpROIHeight GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="4095" />
+                <shapeType GeneralType="EnumTypes" Type="MPSizectorS_DotNet.ExpROIShapeType" Assembly="MPSizectorS_DotNet" Value="Circle" />
+                <IsBase GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="1" />
+                <Polarity GeneralType="EnumTypes" Type="MPSizectorS_DotNet.ExpROIPropertyType" Assembly="MPSizectorS_DotNet" Value="Positive" />
+            </Item>
+        </ExpROIs>
+        <SuppressExpParamsEnable GeneralType="StructTypes" Type="MPSizectorS_DotNet.SuppressExpParamsEnableStructType" Assembly="MPSizectorS_DotNet">
+            <SuppressExpParam1Enable GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+            <SuppressExpParam2Enable GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+            <SuppressExpParam3Enable GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        </SuppressExpParamsEnable>
+        <FlipEnable GeneralType="StructTypes" Type="MPSizectorS_DotNet.FlipEnableStructType" Assembly="MPSizectorS_DotNet">
+            <FlipXEnable GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+            <FlipYEnable GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        </FlipEnable>
+        <AntiLampFlickerMode GeneralType="EnumTypes" Type="MPSizectorS_DotNet.AntiLampFlickerModeType" Assembly="MPSizectorS_DotNet" Value="Off" />
+        <MonitorPositions GeneralType="ArrayTypes" Type="MPSizectorS_DotNet.MonitorPositionStructType[]" Assembly="MPSizectorS_DotNet">
+            <Item GeneralType="StructTypes" Type="MPSizectorS_DotNet.MonitorPositionStructType" Assembly="MPSizectorS_DotNet">
+                <MonitorPositionX GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="65535" />
+                <MonitorPositionY GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="65535" />
+            </Item>
+            <Item GeneralType="StructTypes" Type="MPSizectorS_DotNet.MonitorPositionStructType" Assembly="MPSizectorS_DotNet">
+                <MonitorPositionX GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="65535" />
+                <MonitorPositionY GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="65535" />
+            </Item>
+            <Item GeneralType="StructTypes" Type="MPSizectorS_DotNet.MonitorPositionStructType" Assembly="MPSizectorS_DotNet">
+                <MonitorPositionX GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="65535" />
+                <MonitorPositionY GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="65535" />
+            </Item>
+            <Item GeneralType="StructTypes" Type="MPSizectorS_DotNet.MonitorPositionStructType" Assembly="MPSizectorS_DotNet">
+                <MonitorPositionX GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="65535" />
+                <MonitorPositionY GeneralType="PrimitiveTypes" Type="System.UInt16" Assembly="mscorlib" Value="65535" />
+            </Item>
+        </MonitorPositions>
+    </ExpertSettings>
+    <SoftwarePreprocessSettings GeneralType="StructTypes" Type="MPSizectorS_DotNet.SoftwarePreprocessList" Assembly="MPSizectorS_DotNet">
+        <SoftwarePreprocessNumber GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        <SoftwarePreprocessEnable GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+        <SoftwarePreprocessList GeneralType="ArrayTypes" Type="MPSizectorS_DotNet.SoftwarePreprocessList[]" Assembly="MPSizectorS_DotNet" />
+        <Parameters GeneralType="ArrayTypes" Type="MPSizectorS_DotNet.SoftwarePreprocessParameters[]" Assembly="MPSizectorS_DotNet">
+            <Parameter1 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter2 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter3 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter4 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter5 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter6 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter7 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter8 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter9 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter10 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter11 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter12 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter13 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter14 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter15 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter16 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter17 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter18 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter19 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter20 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter21 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter22 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter23 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter24 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter25 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter26 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter27 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter28 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter29 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter30 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter31 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+            <Parameter32 GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="4294967295" />
+        </Parameters>
+    </SoftwarePreprocessSettings>
+    <CompensationParams GeneralType="StructTypes" Type="MPSizectorS_DotNet.CompensationParams" Assembly="MPSizectorS_DotNet">
+        <LinearTemperatureDriftCompensationParams GeneralType="StructTypes" Type="LinearTemperatureDriftCompensationParam" Assembly="MPSizectorS_DotNet">
+            <Enable GeneralType="PrimitiveTypes" Type="System.Byte" Assembly="mscorlib" Value="0" />
+            <K GeneralType="PrimitiveTypes" Type="System.Float" Assembly="mscorlib" Value="0.000000" />
+        </LinearTemperatureDriftCompensationParams>
+    </CompensationParams>
+    <SDKVersion GeneralType="PrimitiveTypes" Type="System.Float" Assembly="mscorlib" Value="2.758000" />
+    <SettingFileVersion GeneralType="PrimitiveTypes" Type="System.Float" Assembly="mscorlib" Value="1.000000" />
+</root>
