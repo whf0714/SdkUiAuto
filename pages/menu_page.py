@@ -636,22 +636,32 @@ class MenuPage:
         run_pause_locator = (By.NAME, "运行 / 暂停")
         self.force_click(run_pause_locator)
 
-    def click_display(self, preset_name):
+    def click_display(self, display_name):
         self.click((By.NAME, "显示"))
-        display_locator = (By.NAME, preset_name)
+        display_locator = (By.NAME, display_name)
         self.force_click(display_locator)
 
-    # def display_full_screen(self):
-    #     self.click_display("进入全屏 / 退出全屏")
-    #
-    # def display_rotation(self):
-    #     self.click_display("开启旋转 / 关闭旋转")
-    #
-    # def display_auto_color_depth_range(self):
-    #     self.click_display("执行自动色谱范围")
-    #
-    # def display_tile_display(self):
-    #     self.click_display("开启 / 关闭平铺显示")
+    def click_language(self, language_name):
+        try:
+            self.click((By.XPATH, "//MenuBar[@AutomationId='menuStrip1']//MenuItem[@Name='语言']"))
+        except:
+            try:
+                self.click((By.XPATH, "//MenuBar[@AutomationId='menuStrip1']//MenuItem[@Name='Language']"))
+            except:
+                self.take_screenshot("language_menu_not_found")
+                raise Exception("无法找到语言菜单，尝试了'Language'和'语言'两种名称")
+        language_locator = (By.NAME, language_name)
+        self.force_click(language_locator)
+
+    def get_element_name(self,automation_id, timeout=10):
+        locator = (MobileBy.ACCESSIBILITY_ID, automation_id)
+        try:
+            element =WebDriverWait(self.driver, timeout).until(
+                EC.presence_of_element_located(locator)
+            )
+            return element.get_attribute('Name')
+        except Exception as e:
+            raise Exception((f"获取元素 name 失败，automation_id: {automation_id}，错误信息: {str(e)}"))
 
     def quit(self):
         if self.driver:

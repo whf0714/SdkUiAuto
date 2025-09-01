@@ -164,7 +164,26 @@ class TestPublicMenu(unittest.TestCase):
             print(f"❌ 验证运行/暂停功能失败")
             raise
 
+    def verify_language_element_name(self,menu_method,expected_name,setting_name,automation_id):
+        """
+        验证切换语言后指定元素的名称是否为中/英文
+        Args:
+            menu_method: 要执行的语言切换方法
+            expected_name: 期望的元素名称
+            setting_name: 操作名称，用于日志输出
+            automation_id: 元素的AutomationId
+        """
+        print(f"Starting test for language_{setting_name}")
+        try:
+            menu_method()
+            actual_name = self.menu_page.get_element_name(automation_id)
+            self.assertEqual(actual_name, expected_name,f"{setting_name}后元素名称不匹配:,automation_id='{automation_id}' 预期='{expected_name}', 实际='{actual_name}'")
+        except AssertionError as ae:
+            self.menu_page.take_screenshot("language_verification_failed")
+            print(f"❌ 验证{setting_name}功能失败")
+            raise
 
 
-# if __name__ == '__main__':
+
+    # if __name__ == '__main__':
 #     unittest.main()
