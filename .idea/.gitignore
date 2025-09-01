@@ -1,13 +1,14 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+**/screenshots/
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+# Python compiled files
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-**/screenshots/
