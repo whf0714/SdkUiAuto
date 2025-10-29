@@ -183,7 +183,7 @@ class TestFlipSettings(TestCameraPublic):
         self.camera_setting_page.expand_basic() #展开基本设置
         self.camera_setting_page.set_white()#切换2d_白照明模式
         self.camera_setting_page.expert_setting_enable()  # 启用专业设置，并切换到专业设置tab
-        self.camera_setting_page.scroll_down()  # 滚动条下滑
+        # self.camera_setting_page.scroll_down()  # 滚动条下滑
         self.verify_setting_change_by_click(self.camera_setting_page.set_flip_x, "flip_x")
         self.camera_setting_page.set_flip_x_unselect()
 

@@ -143,7 +143,6 @@ class CameraSettingPage:
     def set_fast(self):
         fast_locator = (MobileBy.ACCESSIBILITY_ID, "WorkingModeFastRbt")
         self.click(fast_locator)
-        print(self.driver.page_source)
 
     def set_standard(self):
         standard_locator = (MobileBy.ACCESSIBILITY_ID, "WorkingModeStandardRbt")
@@ -372,7 +371,6 @@ class CameraSettingPage:
         post_process_locator = (MobileBy.ACCESSIBILITY_ID, "PostProcessLbl")
         collapse_text = '► 后处理'
         self.toggle_collapse(post_process_locator, collapse_text)
-        # print(self.driver.page_source)
 
     def scroll_down(self):
         scroll_locator = (MobileBy.ACCESSIBILITY_ID, "NonClientVerticalScrollBar")
@@ -384,7 +382,6 @@ class CameraSettingPage:
         io_locator = (MobileBy.ACCESSIBILITY_ID, "IOSettingPnl")
         collapse_text = '► I/O'
         self.toggle_collapse(io_locator, collapse_text)
-        # print(self.driver.page_source)
 
     def set_exposure_num_single(self):
         exposure_num_single_locator = (MobileBy.ACCESSIBILITY_ID, "SingleExposureRbt")
@@ -849,7 +846,6 @@ class CameraSettingPage:
         self.force_click(enable_expert_locator)
         # pg.click(x=78, y=220) #点击'启用专业设置'
         # pg.click(x=74, y=248)  # 点击'实时后处理'
-        # print(self.driver.page_source)
         # time.sleep(1)
         # pg.click(x=1136, y=757) #弹窗 启用专业设置
         # time.sleep(1)

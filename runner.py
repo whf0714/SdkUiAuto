@@ -50,9 +50,9 @@ def run_all_tests(test_dir=None, test_pattern='test_*.py'):
 
 # 配置区域 - 用户可以直接修改以下参数
 CONFIG = {
-    'test_dir': 'menu',  # 可选值: 'camera', 'menu', 'all'
+    'test_dir': 'camera',  # 可选值: 'camera', 'menu', 'all'
     # 'test_pattern': 'test_settings_01_working_mode.py'
-    'test_pattern': 'test_menu_03_display.py'  # 测试文件匹配模式 可选值test_*.py，'test_menu_01_file.py'
+    'test_pattern': 'test_settings_17_expert_setting.py'  # 测试文件匹配模式 可选值test_*.py，'test_menu_01_file.py'，'test_menu_06_post_process.py'
 
 }
 

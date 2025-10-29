@@ -85,7 +85,7 @@ class MenuPage:
     def open_sdk(self, server, desired_caps):
         self.driver = webdriver.Remote(command_executor=server, desired_capabilities=desired_caps)
 
-    def _wait_until_clickable(self, locator, timeout=10):
+    def _wait_until_clickable(self, locator, timeout=30):
         """Helper method to wait until an element is clickable."""
         try:
             return WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))

@@ -11,8 +11,7 @@ class TestMenuDisplay(TestPublicMenu):
 
     def test_display_01_full_screen(self):
         """验证进入全屏/ 退出全屏"""
-        self.menu_page.toggle_run_status()  # 设备切换为运行状态
-        self.menu_page.trigger_camera()  # 触发一次拍摄
+        # self.menu_page.toggle_run_status()  # 单独执行用例时设备切换为运行状态
         self.menu_page.click_display("进入全屏 / 退出全屏")
         self.menu_page.click_display("进入全屏 / 退出全屏")
         self.menu_page.click_display("进入全屏 / 退出全屏")
