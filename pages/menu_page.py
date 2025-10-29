@@ -41,7 +41,7 @@ class MenuPage:
             cls._instance.driver = get_driver_manager().get_driver()
             # 保存当前窗口句柄（可能是显示窗口）
             cls._instance.main_window_handle = cls._instance.driver.current_window_handle
-            print(f"已保存初始窗口句柄: {cls._instance.main_window_handle}")
+            # print(f"已保存初始窗口句柄: {cls._instance.main_window_handle}")
             # 初始化操作界面窗口句柄为None，需要在使用时动态获取
             cls._instance.operation_window_handle = None
             cls._instance._initialize_device_status()  # 单例初始化时自动检查设备状态
@@ -109,7 +109,7 @@ class MenuPage:
             # 如果已经知道操作界面窗口句柄且它仍然存在，则直接切换
             if self.operation_window_handle and self.operation_window_handle in self.driver.window_handles:
                 self.driver.switch_to.window(self.operation_window_handle)
-                print(f"已切换到操作界面窗口: {self.operation_window_handle}")
+                # print(f"已切换到操作界面窗口: {self.operation_window_handle}")
                 return True
                 
             # 尝试查找包含菜单的操作界面窗口
@@ -122,7 +122,7 @@ class MenuPage:
                         file_menu = self.driver.find_elements(By.NAME, "文件")
                         if len(file_menu) > 0:
                             self.operation_window_handle = handle
-                            print(f"找到并切换到操作界面窗口: {handle}")
+                            # print(f"找到并切换到操作界面窗口: {handle}")
                             return True
                     except Exception as e:
                         print(f"检查窗口{handle}时出错: {str(e)}")
@@ -164,7 +164,7 @@ class MenuPage:
             for window_handle in self.driver.window_handles:
                 if window_handle != original_window:
                     self.driver.switch_to.window(window_handle)
-                    print(f"已切换到新窗口: {window_handle}")
+                    # print(f"已切换到新窗口: {window_handle}")
                     return True
             
             return False
@@ -222,6 +222,11 @@ class MenuPage:
                 raise
             print(f"Timeout while waiting for {locator} to be clickable.")
 
+    def scroll_down(self):
+        scroll_locator = (MobileBy.ACCESSIBILITY_ID, "NonClientVerticalScrollBar")
+        self.click(scroll_locator)
+        pg.scroll(-1)
+
     def wait_for_standby(self, timeout=10):
         standby_locator = (By.XPATH, "//StatusBar[@AutomationId='DeviceInfoSts']//Text[normalize-space(@Name)='StandBy']")
         standby_text = None
@@ -236,7 +241,6 @@ class MenuPage:
         except TimeoutException:
             print("❌ The current device status is not 'StandBy' ")
             return None
-
 
     def wait_for_text_prompt(self, expected_text, timeout=10):
         """等待包含指定文本的提示元素出现
@@ -662,6 +666,287 @@ class MenuPage:
             return element.get_attribute('Name')
         except Exception as e:
             raise Exception((f"获取元素 name 失败，automation_id: {automation_id}，错误信息: {str(e)}"))
+
+    def _trigger_and_switch_to_post_process(self, timeout=30):
+        # 获取当前窗口句柄
+        original_window = self.driver.current_window_handle
+
+        # 点击菜单触发保存操作
+        self.click((By.NAME, "文件"))
+        post_process_locator = (By.NAME, "实时后处理")
+        self.force_click(post_process_locator)
+
+        # 等待新窗口出现并切换到该窗口
+        if not self._switch_to_new_window(original_window, timeout):
+            print("未能切换到新窗口")
+            return False
+
+        # 等待"实时后处理设置"窗口完全加载
+        window_title = "实时后处理设置"
+        try:
+            WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_element_located((By.NAME, window_title))
+            )
+            return True
+        except TimeoutException:
+            print(f"等待窗口 '{window_title}' 加载超时")
+            return False
+
+    def switch_post_process(self, timeout=30):
+        # 在流程最开始获取并保存原始窗口句柄
+        original_window = self.driver.current_window_handle
+        # print(f"切换实时后处理设置窗口，原始窗口句柄: {original_window}")
+
+        try:
+            if not self._trigger_and_switch_to_post_process(timeout):
+                return False
+            # print("打印窗口HTML内容:\n" + self.driver.page_source)
+            return True
+
+        except Exception as e:
+            print(f"切换实时后处理设置窗口发生错误: {str(e)}")
+            self.take_screenshot("post_process_timeout_Failed")
+            # 出错时确保切换回操作界面窗口
+            self._ensure_operation_window()
+            return False
+
+    def set_post_process_enable(self):
+        post_process_enable_locator = (MobileBy.ACCESSIBILITY_ID, "isEnablePostProcessCb")
+        is_checked = self.get_checkbox_status(post_process_enable_locator)
+        if not is_checked:
+            self.click(post_process_enable_locator)
+
+    def set_post_process_disable(self):
+        post_process_disable_locator = (MobileBy.ACCESSIBILITY_ID, "isEnablePostProcessCb")
+        is_checked = self.get_checkbox_status(post_process_disable_locator)
+        if is_checked:
+            self.click(post_process_disable_locator)
+
+    def set_gpu_computation_enable(self):
+        gpu_computation_enable_locator = (MobileBy.ACCESSIBILITY_ID, "isEnableGPUCb")
+        is_checked = self.get_checkbox_status(gpu_computation_enable_locator)
+        if not is_checked:
+            self.click(gpu_computation_enable_locator)
+
+    def set_gpu_computation_disable(self):
+        gpu_computation_disable_locator = (MobileBy.ACCESSIBILITY_ID, "isEnableGPUCb")
+        is_checked = self.get_checkbox_status(gpu_computation_disable_locator)
+        if is_checked:
+            self.click(gpu_computation_disable_locator)
+
+    def set_global_buffer_enable(self):
+        global_buffer_enable_locator = (MobileBy.ACCESSIBILITY_ID, "UseGlobalBufferCb")
+        is_checked = self.get_checkbox_status(global_buffer_enable_locator)
+        if not is_checked:
+            self.click(global_buffer_enable_locator)
+
+    def set_global_buffer_disable(self):
+        global_buffer_disable_locator = (MobileBy.ACCESSIBILITY_ID, "UseGlobalBufferCb")
+        is_checked = self.get_checkbox_status(global_buffer_disable_locator)
+        if is_checked:
+            self.click(global_buffer_disable_locator)
+
+    # 范围检查相关方法
+    def add_range_check(self):
+        range_check_button = (MobileBy.ACCESSIBILITY_ID, "AddRangeCheckBtn")
+        self.click(range_check_button)
+
+    def set_range_check_center_x(self, input_value):
+        center_x_locator = (By.XPATH, "//Edit[@AutomationId='CircleCenterXTb']")
+        self.double_click(center_x_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_range_check_center_y(self, input_value):
+        center_y_locator = (By.XPATH, "//Edit[@AutomationId='CircleCenterYTb']")
+        self.double_click(center_y_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_range_check_inner_radius(self, input_value):
+        inner_radius_locator = (By.XPATH, "//Edit[@AutomationId='InnerCircleRadiusTb']")
+        self.double_click(inner_radius_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_range_check_outer_radius(self, input_value):
+        outer_radius_locator = (By.XPATH, "//Edit[@AutomationId='OuterCircleRadiusTb']")
+        self.double_click(outer_radius_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_range_check_x_min(self, input_value):
+        x_min_locator = (By.XPATH, "//Edit[@AutomationId='XMinTb']")    
+        self.double_click(x_min_locator)
+        pg.press("backspace")
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_range_check_x_max(self, input_value):
+        x_max_locator = (By.XPATH, "//Edit[@AutomationId='XMaxTb']")
+        self.double_click(x_max_locator)    
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_range_check_y_min(self, input_value):
+        y_min_locator = (By.XPATH, "//Edit[@AutomationId='YMinTb']")    
+        self.double_click(y_min_locator)
+        pg.press("backspace")
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_range_check_y_max(self, input_value):
+        y_max_locator = (By.XPATH, "//Edit[@AutomationId='YMaxTb']")
+        self.double_click(y_max_locator)            
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_range_check_z_min(self, input_value):
+        z_min_locator = (By.XPATH, "//Edit[@AutomationId='ZMinTb']")
+        self.double_click(z_min_locator)
+        pg.press("backspace")
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_range_check_z_max(self, input_value):
+        z_max_locator = (By.XPATH, "//Edit[@AutomationId='ZMaxTb']")
+        self.double_click(z_max_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    # 去飞点相关方法
+    def add_remove_burrs(self):
+        remove_burrs_button = (MobileBy.ACCESSIBILITY_ID, "AddRemoveBurrsBtn")
+        self.click(remove_burrs_button)
+
+    def set_remove_burrs_win_size(self, input_value):#窗口尺寸
+        win_size_locator = (By.XPATH, "//Pane[@AutomationId='WinSizeSettingItem']//Edit")
+        self.double_click(win_size_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_remove_burrs_win_size2(self, input_value):#次窗口
+        win_size2_locator = (By.XPATH, "//Pane[@AutomationId='WinSize2SettingItem']//Edit")
+        self.double_click(win_size2_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+    
+    def set_remove_burrs_slope_level(self, input_value):#斜率
+        slope_level_locator = (By.XPATH, "//Pane[@AutomationId='SlopeLevelSettingItem']//Edit")
+        self.double_click(slope_level_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_remove_burrs_neighbor_close_level(self, input_value):#邻近阈值
+        neighbor_close_level_locator = (By.XPATH, "//Pane[@AutomationId='NeighborCloseLevelSettingItem']//Edit")
+        self.double_click(neighbor_close_level_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_remove_burrs_neighbor_num_level(self, input_value):#邻近数量
+        neighbor_num_level_locator = (By.XPATH, "//Pane[@AutomationId='NeighborNumLevelSettingItem']//Edit")
+        self.double_click(neighbor_num_level_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_remove_burrs_edge_suppress_level(self, input_value):#抑制窄边
+        edge_suppress_level_locator = (By.XPATH, "//Pane[@AutomationId='EdgeSuppressLevelSettingItem']//Edit")
+        self.double_click(edge_suppress_level_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+        
+    # 填补相关方法
+    def add_mend(self):
+        """勾选后处理_填补"""
+        mend_button = (By.XPATH, "//Button[@AutomationId='AddMendBtn']")
+        self.click(mend_button)
+        
+    def set_mend_win_size(self, input_value):#窗口尺寸
+        win_size_locator = (By.XPATH, "//Pane[@AutomationId='WinSizeSettingItem2']//Edit")
+        self.double_click(win_size_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+        
+    def set_mend_win_size2(self, input_value):#次窗口尺寸
+        win_size2_locator = (By.XPATH, "//Pane[@AutomationId='WinSize2SettingItem2']//Edit")
+        self.double_click(win_size2_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+        
+    def set_mend_method(self, input_value):#填补方法
+        method_locator = (By.XPATH, "//Pane[@AutomationId='methodTb']//Edit")
+        self.double_click(method_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    # 平滑相关方法
+    def add_filtrate(self):
+        """勾选后处理_平滑"""
+        filtrate_button = (By.XPATH, "//Button[@AutomationId='AddFiltrateBtn']")
+        self.click(filtrate_button)
+
+    def set_filtrate_win_size(self, input_value):#窗口尺寸
+        win_size_locator = (By.XPATH, "//Pane[@AutomationId='WinSizeSettingItem3']//Edit")
+        self.double_click(win_size_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_filtrate_neighbor_close_level(self, input_value):#邻近阈值
+        neighbor_close_level_locator = (By.XPATH, "//Pane[@AutomationId='NeighborCloseLevelSettingItem2']//Edit")
+        self.double_click(neighbor_close_level_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_filtrate_neighbor_num_level(self, input_value):#邻近数量
+        neighbor_num_level_locator = (By.XPATH, "//Pane[@AutomationId='NeighborNumLevelSettingItem2']//Edit")
+        self.double_click(neighbor_num_level_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+        
+    def post_process_list(self):#后处理列表第一项
+        first_item_locator = (By.XPATH, "//ListItem[1]")
+        self.click(first_item_locator)
+        
+    def post_process_move_up(self):
+        move_up_button = (By.XPATH, "//Button[@AutomationId='MoveUpBtn']")
+        self.click(move_up_button)
+        
+    def post_process_move_down(self):
+        move_down_button = (By.XPATH, "//Button[@AutomationId='MoveDownBtn']")
+        self.click(move_down_button)
+        
+    def post_process_load_setting(self, setting_name):
+        load_setting_button = (By.XPATH, "//Button[@AutomationId='LoadRealtimeSettingBtn']")
+        self.click(load_setting_button)
+        if not self.navigate_to_read_directory():
+            return False
+        self.click((By.NAME, setting_name), timeout=10)
+        self.click((By.NAME, "打开(O)"))
+        return True
+
+    def post_process_save_setting(self, setting_name, timeout=10):
+        save_setting_button = (By.XPATH, "//Button[@AutomationId='SaveRealtimeSettingBtn']")
+        self.click(save_setting_button)
+        if not self.navigate_to_save_directory():
+            return False
+
+        if not self._input_file_name(setting_name, timeout, "save_setting_input_error"):
+            return False
+
+        self.click((By.NAME, "保存(S)"))
+        return True
+
+    def post_process_delete(self):
+        delete_button = (By.XPATH, "//Button[@AutomationId='DeleteBtn']")
+        self.click(delete_button)
+      
+    def post_process_clear(self):
+        clear_button = (By.XPATH, "//Button[@AutomationId='ClearBtn']")
+        self.click(clear_button)
+
+    def post_process_confirm(self):
+        confirm_button = (By.XPATH, "//Button[@AutomationId='ConfirmBtn']")
+        self.click(confirm_button)
 
     def quit(self):
         if self.driver:
