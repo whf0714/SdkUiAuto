@@ -632,60 +632,63 @@ class CameraSettingPage:
     def set_theta_x(self, input_value):
         theta_x_locator = (By.XPATH, "//Pane[@AutomationId='panel13']//Edit")
         self.double_click(theta_x_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_theta_y(self, input_value):
         theta_y_locator = (By.XPATH, "//Pane[@AutomationId='panel14']//Edit")
         self.double_click(theta_y_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_theta_z(self, input_value):
         theta_z_locator = (By.XPATH, "//Pane[@AutomationId='panel15']//Edit")
         self.double_click(theta_z_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_kx(self, input_value):
         kx_locator = (By.XPATH, "//Pane[@AutomationId='panel16']//Edit")
         self.double_click(kx_locator)
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_ky(self, input_value):
         ky_locator = (By.XPATH, "//Pane[@AutomationId='panel20']//Edit")
         self.double_click(ky_locator)
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_kz(self, input_value):
         kz_locator = (By.XPATH, "//Pane[@AutomationId='panel22']//Edit")
         self.double_click(kz_locator)
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_bx(self, input_value):
         bx_locator = (By.XPATH, "//Pane[@AutomationId='panel24']//Edit")
         self.double_click(bx_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_by(self, input_value):
         by_locator = (By.XPATH, "//Pane[@AutomationId='panel27']//Edit")
         self.double_click(by_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_bz(self, input_value):
         bz_locator = (By.XPATH, "//Pane[@AutomationId='panel30']//Edit")
         self.double_click(bz_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
@@ -693,7 +696,7 @@ class CameraSettingPage:
     def set_x0_position(self, input_value):
         x0_position_locator = (By.XPATH, "//Pane[@AutomationId='DataScaleX0FVTbx']//Edit")
         self.double_click(x0_position_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
@@ -706,7 +709,7 @@ class CameraSettingPage:
     def set_y0_position(self, input_value):
         y0_position_locator = (By.XPATH, "//Pane[@AutomationId='DataScaleY0FVTbx']//Edit")
         self.double_click(y0_position_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
@@ -719,7 +722,7 @@ class CameraSettingPage:
     def set_z0_position(self, input_value):
         z0_position_locator = (By.XPATH, "//Pane[@AutomationId='DataScaleZ0FVTbx']//Edit")
         self.double_click(z0_position_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
@@ -744,42 +747,42 @@ class CameraSettingPage:
     def set_range_check_x_min(self, input_value):
         x_min_locator = (By.XPATH, "//Pane[@AutomationId='RangeCheckXMinFVTbx']//Edit")
         self.double_click(x_min_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_range_check_x_max(self, input_value):
         x_max_locator = (By.XPATH, "//Pane[@AutomationId='RangeCheckXMaxFVTbx']//Edit")
         self.double_click(x_max_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_range_check_y_min(self, input_value):
         y_min_locator = (By.XPATH, "//Pane[@AutomationId='RangeCheckYMinFVTbx']//Edit")
         self.double_click(y_min_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_range_check_y_max(self, input_value):
         y_max_locator = (By.XPATH, "//Pane[@AutomationId='RangeCheckYMaxFVTbx']//Edit")
         self.double_click(y_max_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_range_check_z_min(self, input_value):
         z_min_locator = (By.XPATH, "//Pane[@AutomationId='RangeCheckZMinFVTbx']//Edit")
         self.double_click(z_min_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
     def set_range_check_z_max(self, input_value):
         z_max_locator = (By.XPATH, "//Pane[@AutomationId='RangeCheckZMaxFVTbx']//Edit")
         self.double_click(z_max_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
         

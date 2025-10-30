@@ -778,7 +778,7 @@ class MenuPage:
     def set_range_check_x_min(self, input_value):
         x_min_locator = (By.XPATH, "//Edit[@AutomationId='XMinTb']")    
         self.double_click(x_min_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
@@ -791,7 +791,7 @@ class MenuPage:
     def set_range_check_y_min(self, input_value):
         y_min_locator = (By.XPATH, "//Edit[@AutomationId='YMinTb']")    
         self.double_click(y_min_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 
@@ -804,7 +804,7 @@ class MenuPage:
     def set_range_check_z_min(self, input_value):
         z_min_locator = (By.XPATH, "//Edit[@AutomationId='ZMinTb']")
         self.double_click(z_min_locator)
-        pg.press("backspace")
+        pg.hotkey('ctrl', 'a')
         pg.press("backspace")
         pg.write(input_value)
 

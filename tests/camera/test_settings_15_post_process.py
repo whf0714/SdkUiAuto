@@ -227,11 +227,11 @@ class TestCameraFixPointDataScale(TestCameraPublic):
         self.verify_setting_change_by_input(self.camera_setting_page.set_y_increment,"0.0008", "y_increment_default")
 
     def test_fix_point_data_scale_04_z0_position_default(self):
-        """验证（设备：SQ081043）YO坐标值设置默认值（-6）并触发拍摄"""
+        """验证（设备：SQ081043）ZO坐标值设置默认值（-6）并触发拍摄"""
         self.verify_setting_change_by_input(self.camera_setting_page.set_z0_position,"-6", "z0_position_default")
 
     def test_fix_point_data_scale_05_z_increment_default(self):
-        """验证（设备：SQ081043）Y增量设置默认值（0.00019）并触发拍摄"""
+        """验证（设备：SQ081043）Z增量设置默认值（0.00019）并触发拍摄"""
         self.verify_setting_change_by_input(self.camera_setting_page.set_z_increment,"0.00019", "z_increment_default")
 
 class TestCameraRangeCheck(TestCameraPublic):
