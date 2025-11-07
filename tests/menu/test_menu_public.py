@@ -15,7 +15,8 @@ class TestPublicMenu(unittest.TestCase):
         # MenuPage单例会在创建时自动调用_initialize_device_status方法
         # 等待初始化完成
         # time.sleep(2)
-        print("设备状态已初始化，确保处于暂停状态")
+        # print("设备状态已初始化，确保处于暂停状态")
+        pass
 
     @classmethod
     def tearDownClass(cls):

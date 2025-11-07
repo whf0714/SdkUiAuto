@@ -85,7 +85,7 @@ class MenuPage:
     def open_sdk(self, server, desired_caps):
         self.driver = webdriver.Remote(command_executor=server, desired_capabilities=desired_caps)
 
-    def _wait_until_clickable(self, locator, timeout=30):
+    def _wait_until_clickable(self, locator, timeout=60):
         """Helper method to wait until an element is clickable."""
         try:
             return WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
@@ -463,6 +463,31 @@ class MenuPage:
         # print(f"Successfully saved animation: {file_name}")
         return True
 
+    def save_data_exception(self):
+        self.click((By.NAME, "文件"))
+        save_data_locator = (By.NAME, "保存数据")
+        self.force_click(save_data_locator)
+        
+    def load_data_exception(self):
+        self.click((By.NAME, "文件"))
+        load_data_locator = (By.NAME, "导入数据")
+        self.force_click(load_data_locator)
+    
+    def save_point_cloud_format_exception(self):
+        self.click((By.NAME, "文件"))
+        save_point_cloud_locator = (By.NAME, "保存点云格式")
+        self.force_click(save_point_cloud_locator)
+    
+    def save_2d_snapshot_exception(self):
+        self.click((By.NAME, "文件"))
+        save_2d_locator = (By.NAME, "保存二维截图")
+        self.force_click(save_2d_locator)
+    
+    def save_gif_exception(self):
+        self.click((By.NAME, "文件"))
+        save_gif_locator = (By.NAME, "保存动图")
+        self.force_click(save_gif_locator)
+
     def save_all_file(self, file_name, timeout=30):
 
         # print(f"Trying to save all file，超时时间设置为: {timeout}秒") 
@@ -551,7 +576,6 @@ class MenuPage:
         self.click((By.NAME, "文件"))
         enable_expert_locator = (By.NAME, "启用专业设置")
         self.force_click(enable_expert_locator)
-
 
     def get_working_mode_status(self, mode_name):
         """
@@ -646,16 +670,14 @@ class MenuPage:
         self.force_click(display_locator)
 
     def click_language(self, language_name):
-        try:
-            self.click((By.XPATH, "//MenuBar[@AutomationId='menuStrip1']//MenuItem[@Name='语言']"))
-        except:
-            try:
-                self.click((By.XPATH, "//MenuBar[@AutomationId='menuStrip1']//MenuItem[@Name='Language']"))
-            except:
-                self.take_screenshot("language_menu_not_found")
-                raise Exception("无法找到语言菜单，尝试了'Language'和'语言'两种名称")
+        if language_name == "中文":
+            menu_name = "Language"
+        elif language_name == "English":
+            menu_name = "语言"
+        menu_locator = (By.XPATH, f"//MenuBar[@AutomationId='menuStrip1']//MenuItem[@Name='{menu_name}']")
+        self.click(menu_locator)
         language_locator = (By.NAME, language_name)
-        self.force_click(language_locator)
+        self.force_click(language_locator)  
 
     def get_element_name(self,automation_id, timeout=10):
         locator = (MobileBy.ACCESSIBILITY_ID, automation_id)
