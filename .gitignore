@@ -5,4 +5,6 @@ screenshots/
 tests/camera/__pycache__/
 tests/menu/__pycache__/ 
 utils/__pycache__/
-
+data/read/3dMpdat3.mpdat
+data/read/testData.mpdat
+data/read/*.mpdat
