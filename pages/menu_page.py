@@ -448,7 +448,7 @@ class MenuPage:
         # print(f"Successfully saved 2D snapshot: {file_name}")
         return True
 
-    def save_gif(self, file_name, timeout=10):
+    def save_gif(self, file_name, timeout=30):
         # print(f"Trying to save gif: {file_name}")
         self.click((By.NAME, "文件"))
         save_gif_locator = (By.NAME, "保存动图")

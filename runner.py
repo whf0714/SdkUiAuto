@@ -52,7 +52,7 @@ def run_all_tests(test_dir=None, test_pattern='test_*.py'):
 CONFIG = {
     'test_dir': 'menu',  # 可选值: 'camera', 'menu', 'all'
     # 'test_pattern': 'test_settings_01_working_mode.py'
-    'test_pattern': 'test_*.py'  # 测试文件匹配模式 可选值'test_*.py'，'test_menu_01_file.py'，'test_menu_06_post_process.py'
+    'test_pattern': 'TestM_Menu.py'  # 测试文件匹配模式 可选值'TestM_Camera.py' 'test_*.py'，'test_menu_01_file.py'，'test_menu_06_post_process.py'
 
 }
 

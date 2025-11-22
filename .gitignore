@@ -8,3 +8,4 @@ utils/__pycache__/
 data/read/3dMpdat3.mpdat
 data/read/testData.mpdat
 data/read/*.mpdat
+data/save

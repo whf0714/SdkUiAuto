@@ -6,6 +6,7 @@ class TestCameraWorkingMode(TestCameraPublic):
 
     def test_working_mode_01_fast(self):
         """验证切换工作模式（快速）并触发拍摄"""
+        self.camera_setting_page.set_soft_trigger() #确保设备触发模式为软件触发
         self.verify_setting_change_by_click(self.camera_setting_page.set_fast, "Fast")
 
     def test_working_mode_02_standard(self):

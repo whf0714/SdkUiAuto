@@ -2,10 +2,13 @@
 from tests.camera.test_camera_public import TestCameraPublic
 import random
 
+"""当前定点数转换及范围检查设置均为M051040参数，需要先确认设备型号"""
+
 class TestCamera01WorkingMode(TestCameraPublic):
 
     def test_working_mode_0_fast(self):
         """验证切换工作模式（快速）并触发拍摄"""
+        self.camera_setting_page.set_soft_trigger() #确保设备触发模式为软件触发
         self.verify_setting_change_by_click(self.camera_setting_page.set_fast, "Fast")
 
     def test_working_mode_1_standard(self):
@@ -563,28 +566,28 @@ class TestCamera10RTMatrix(TestCameraPublic):
 class TestCamera11FixPointDataScale(TestCameraPublic):
 
     def test_fix_point_data_scale_00_x0_position_default(self):
-        """验证（设备：M051280）XO坐标值设置默认值（-200.2）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_x0_position, "-200.2", "x0_position_default")
+        """验证（设备：M051040）XO坐标值设置默认值（-25）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_x0_position, "-25", "x0_position_default")
 
     def test_fix_point_data_scale_01_x_increment_default(self):
-        """验证（设备：M051280）X增量设置默认值（0.006）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_x_increment, "0.006", "x_increment_default")
+        """验证（设备：M051040）X增量设置默认值（0.000762）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_x_increment, "0.000762", "x_increment_default")
 
     def test_fix_point_data_scale_02_y0_position_default(self):
-        """验证（设备：M051280）YO坐标值设置默认值（-167.1）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_y0_position, "-167.1", "y0_position_default")
+        """验证（设备：M051040）YO坐标值设置默认值（-20.9）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_y0_position, "-20.9", "y0_position_default")
 
     def test_fix_point_data_scale_03_y_increment_default(self):
-        """验证（设备：M051280）Y增量设置默认值（0.0051）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_y_increment, "0.0051", "y_increment_default")
+        """验证（设备：M051040）Y增量设置默认值（0.000636）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_y_increment, "0.000636", "y_increment_default")
 
     def test_fix_point_data_scale_04_z0_position_default(self):
-        """验证（设备：M051280）YO坐标值设置默认值（-120）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_z0_position, "-120", "z0_position_default")
+        """验证（设备：M051040）YO坐标值设置默认值（-6）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_z0_position, "-6", "z0_position_default")
 
     def test_fix_point_data_scale_05_z_increment_default(self):
-        """验证（设备：M051280）Y增量设置默认值（0.00019）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_z_increment, "0.003663", "z_increment_default")
+        """验证（设备：M051040）Y增量设置默认值（0.000184）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_z_increment, "0.000184", "z_increment_default")
 
 class TestCamera12RangeCheck(TestCameraPublic):
 
@@ -594,32 +597,93 @@ class TestCamera12RangeCheck(TestCameraPublic):
         self.verify_setting_change_by_click(self.camera_setting_page.set_range_check_enable, "range_check_enable")
 
     def test_range_check_01_x_min_default(self):
-        """验证（设备：M051280）范围检查X最小值设置默认值（-420）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_x_min, "-420", "x_min_default")
+        """验证（设备：M051040）范围检查X最小值设置默认值（-10000）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_x_min, "-10000", "x_min_default")
 
     def test_range_check_02_x_max_default(self):
-        """验证（设备：M051280）范围检查X最大值设置默认值（420）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_x_max, "420", "x_max_default")
+        """验证（设备：M051040）范围检查X最大值设置默认值（10000）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_x_max, "10000", "x_max_default")
 
     def test_range_check_03_y_min_default(self):
-        """验证（设备：M051280）范围检查Y最小值设置默认值（-350.8）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_y_min, "-350.8", "y_min_default")
+        """验证（设备：M051040）范围检查Y最小值设置默认值（-10000）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_y_min, "-10000", "y_min_default")
 
     def test_range_check_04_y_max_default(self):
-        """验证（设备：M051280）范围检查Y最大值设置默认值（350.8）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_y_max, "350.8", "y_max_default")
+        """验证（设备：M051040）范围检查Y最大值设置默认值（10000）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_y_max, "10000", "y_max_default")
 
     def test_range_check_05_z_min_default(self):
-        """验证（设备：M051280）范围检查Z最小值设置默认值（-32.6）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_z_min, "-210.0", "z_min_default")
+        """验证（设备：M051040）范围检查Z最小值设置默认值（-10000）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_z_min, "-10000", "z_min_default")
 
     def test_range_check_06_z_max_default(self):
-        """验证（设备：M051280）范围检查Z最大值设置默认值（32.6）并触发拍摄"""
-        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_z_max, "210.0", "z_max_default")
+        """验证（设备：M051040）范围检查Z最大值设置默认值（10000）并触发拍摄"""
+        self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_z_max, "10000", "z_max_default")
 
     def test_range_check_07_disable(self):
         """验证关闭范围检查并触发拍摄"""
         self.verify_setting_change_by_click(self.camera_setting_page.set_range_check_disable, "range_check_disable")
+
+# class TestCamera11FixPointDataScale(TestCameraPublic):
+#
+#     def test_fix_point_data_scale_00_x0_position_default(self):
+#         """验证（设备：M051280）XO坐标值设置默认值（-200.2）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_x0_position, "-200.2", "x0_position_default")
+#
+#     def test_fix_point_data_scale_01_x_increment_default(self):
+#         """验证（设备：M051280）X增量设置默认值（0.006）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_x_increment, "0.006", "x_increment_default")
+#
+#     def test_fix_point_data_scale_02_y0_position_default(self):
+#         """验证（设备：M051280）YO坐标值设置默认值（-167.1）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_y0_position, "-167.1", "y0_position_default")
+#
+#     def test_fix_point_data_scale_03_y_increment_default(self):
+#         """验证（设备：M051280）Y增量设置默认值（0.0051）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_y_increment, "0.0051", "y_increment_default")
+#
+#     def test_fix_point_data_scale_04_z0_position_default(self):
+#         """验证（设备：M051280）YO坐标值设置默认值（-120）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_z0_position, "-120", "z0_position_default")
+#
+#     def test_fix_point_data_scale_05_z_increment_default(self):
+#         """验证（设备：M051280）Y增量设置默认值（0.00019）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_z_increment, "0.003663", "z_increment_default")
+
+# class TestCamera12RangeCheck(TestCameraPublic):
+#
+#     def test_range_check_00_enable(self):
+#         """验证启用范围检查并触发拍摄"""
+#         self.camera_setting_page.scroll_down()  # 滚动条下滑
+#         self.verify_setting_change_by_click(self.camera_setting_page.set_range_check_enable, "range_check_enable")
+#
+#     def test_range_check_01_x_min_default(self):
+#         """验证（设备：M051280）范围检查X最小值设置默认值（-420）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_x_min, "-420", "x_min_default")
+#
+#     def test_range_check_02_x_max_default(self):
+#         """验证（设备：M051280）范围检查X最大值设置默认值（420）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_x_max, "420", "x_max_default")
+#
+#     def test_range_check_03_y_min_default(self):
+#         """验证（设备：M051280）范围检查Y最小值设置默认值（-350.8）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_y_min, "-350.8", "y_min_default")
+#
+#     def test_range_check_04_y_max_default(self):
+#         """验证（设备：M051280）范围检查Y最大值设置默认值（350.8）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_y_max, "350.8", "y_max_default")
+#
+#     def test_range_check_05_z_min_default(self):
+#         """验证（设备：M051280）范围检查Z最小值设置默认值（-32.6）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_z_min, "-210.0", "z_min_default")
+#
+#     def test_range_check_06_z_max_default(self):
+#         """验证（设备：M051280）范围检查Z最大值设置默认值（32.6）并触发拍摄"""
+#         self.verify_setting_change_by_input(self.camera_setting_page.set_range_check_z_max, "210.0", "z_max_default")
+#
+#     def test_range_check_07_disable(self):
+#         """验证关闭范围检查并触发拍摄"""
+#         self.verify_setting_change_by_click(self.camera_setting_page.set_range_check_disable, "range_check_disable")
 
 class TestCamera13General(TestCameraPublic):
 
