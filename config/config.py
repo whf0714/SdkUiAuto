@@ -17,17 +17,17 @@ UI_READ_DATA_PATH = '/\\data\\read'
 UI_SAVE_DATA_PATH = '/\\data\\save'
 UI_SCREENSHOTS_PATH = '/\\screenshots'
 
-# UI_DATA_PATH = 'D:\\Program\\Python\\SdkUiAuto\\data'
-# UI_READ_DATA_PATH = 'D:\\Program\\Python\\SdkUiAuto\\data\\read'
-# UI_SAVE_DATA_PATH = 'D:\\Program\\Python\\SdkUiAuto\\data\\save'
-# UI_SCREENSHOTS_PATH = 'D:\\Program\\Python\\SdkUiAuto\\screenshots'
+# UI_DATA_PATH = 'D:\\Program\\Python\\SdkUiAuto_Full\\data'
+# UI_READ_DATA_PATH = 'D:\\Program\\Python\\SdkUiAuto_Full\\data\\read'
+# UI_SAVE_DATA_PATH = 'D:\\Program\\Python\\SdkUiAuto_Full\\data\\save'
+# UI_SCREENSHOTS_PATH = 'D:\\Program\\Python\\SdkUiAuto_Full\\screenshots'
 
 # 文件保存对话框的导航路径
 NAVIGATION_PATHS = {
     'd_drive': '新加卷 (D:)',
     'program': 'Program',
     'python': 'Python',
-    'sdkui': 'SdkUiAuto',
+    'sdkui': 'SdkUiAuto_Full',
     'data': 'data',
     'read': 'read',
     'save': 'save'
