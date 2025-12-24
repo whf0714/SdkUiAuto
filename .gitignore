@@ -12,6 +12,7 @@ config/__pycache__/
 pages/__pycache__/
 reports/
 screenshots/
+tests/__pycache__/
 tests/camera/__pycache__/
 tests/menu/__pycache__/ 
 utils/__pycache__/
