@@ -1,3 +1,13 @@
+.idea/ 
+.pytest_cache/ 
+*.pyc 
+*.pyo 
+*$py.class 
+Thumbs.db 
+.DS_Store 
+*.log 
+*.tmp 
+*.bak 
 config/__pycache__/
 pages/__pycache__/
 reports/
@@ -9,3 +19,4 @@ data/read/3dMpdat3.mpdat
 data/read/testData.mpdat
 data/read/*.mpdat
 data/save
+.gitignore
