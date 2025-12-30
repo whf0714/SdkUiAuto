@@ -222,10 +222,10 @@ class MenuPage:
                 raise
             print(f"Timeout while waiting for {locator} to be clickable.")
 
-    def scroll_down(self):
+    def scroll_down(self, num=-1):
         scroll_locator = (MobileBy.ACCESSIBILITY_ID, "NonClientVerticalScrollBar")
         self.click(scroll_locator)
-        pg.scroll(-1)
+        pg.scroll(num)
 
     def wait_for_standby(self, timeout=10):
         standby_locator = (By.XPATH, "//StatusBar[@AutomationId='DeviceInfoSts']//Text[normalize-space(@Name)='StandBy']")
@@ -924,6 +924,90 @@ class MenuPage:
         self.double_click(neighbor_num_level_locator)
         pg.press("backspace")
         pg.write(input_value)
+
+    #颜色范围检测相关方法
+    def add_filter_by_color(self):
+        """点击+按钮添加颜色范围检测"""
+        filter_by_color_button = (MobileBy.ACCESSIBILITY_ID, "AddFilterByColorBtn")
+        self.click(filter_by_color_button)
+
+    def set_min_gray_value(self, input_value):
+        """设置最小Gray值"""
+        min_gray_locator = (By.XPATH, "//Pane[@AutomationId='GrayMinIsi']//Edit")
+        self.double_click(min_gray_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_max_gray_value(self, input_value):
+        """设置最大Gray值"""
+        max_gray_locator = (By.XPATH, "//Pane[@AutomationId='GrayMaxIsi']//Edit")
+        self.double_click(max_gray_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_min_white_value(self, input_value):
+        """设置最小White值"""
+        min_white_locator = (By.XPATH, "//Pane[@AutomationId='WhiteMinIsi']//Edit")
+        self.double_click(min_white_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_max_white_value(self, input_value):
+        """设置最大White值"""
+        max_white_locator = (By.XPATH, "//Pane[@AutomationId='WhiteMaxIsi']//Edit")
+        self.double_click(max_white_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_min_rh_value(self, input_value):
+        """设置最小R/H值"""
+        min_rh_locator = (By.XPATH, "//Pane[@AutomationId='Channel1MinIsi']//Edit")
+        self.double_click(min_rh_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_max_rh_value(self, input_value):
+        """设置最大R/H值"""
+        max_rh_locator = (By.XPATH, "//Pane[@AutomationId='Channel1MaxIsi']//Edit")
+        self.double_click(max_rh_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_min_gs_value(self, input_value):
+        """设置最小G/S值"""
+        min_gs_locator = (By.XPATH, "//Pane[@AutomationId='Channel2MinIsi']//Edit")
+        self.double_click(min_gs_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_max_gs_value(self, input_value):
+        """设置最大G/S值"""
+        max_gs_locator = (By.XPATH, "//Pane[@AutomationId='Channel2MaxIsi']//Edit")
+        self.double_click(max_gs_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_min_bv_value(self, input_value):
+        """设置最小B/V值"""
+        min_bv_locator = (By.XPATH, "//Pane[@AutomationId='Channel3MinIsi']//Edit")
+        self.double_click(min_bv_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_max_bv_value(self, input_value):
+        """设置最大B/V值"""
+        max_bv_locator = (By.XPATH, "//Pane[@AutomationId='Channel3MaxIsi']//Edit")
+        self.double_click(max_bv_locator)
+        pg.press("backspace")
+        pg.write(input_value)
+
+    def set_rgb_to_hsv(self, is_checked=True):
+        """设置RGB转HSV复选框状态"""
+        rgb_to_hsv_locator = (MobileBy.ACCESSIBILITY_ID, "RgbToHsvCkb")
+        current_status = self.get_checkbox_status(rgb_to_hsv_locator)
+        if current_status != is_checked:
+            self.click(rgb_to_hsv_locator)
+
         
     def post_process_list(self):#后处理列表第一项
         first_item_locator = (By.XPATH, "//ListItem[1]")
