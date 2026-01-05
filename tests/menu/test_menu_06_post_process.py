@@ -148,7 +148,7 @@ class TestPostProcess(TestPublicMenu):
         """验证添加后处理_平滑"""
         self.menu_page.add_filtrate()
         
-    # 颜色范围检测相关测试用例（按照图片从左到右，从上到下的顺序）
+    # 颜色范围检测相关测试用例
     def test_post_process_33_color_range_set_min_gray_min(self):
         """验证设置最小Gray值为最小值0"""
         self.menu_page.scroll_down(-1000)  # 滚动条下滑
