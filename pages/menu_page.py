@@ -16,15 +16,15 @@ from datetime import datetime
 import os
 import time
 import pyautogui as pg
-from config.config import SCREENSHOTS_DIR, NAVIGATION_PATHS, UI_READ_DATA_PATH, UI_SAVE_DATA_PATH
+from config.config import SCREENSHOTS_DIR, NAVIGATION_PATHS, UI_READ_DATA_PATH, UI_SAVE_DATA_PATH, DEVICE_STATUS_BUTTON
 
 
 class MenuPage:
     # 设备状态按钮相关常量
-    DEVICE_STATUS_BUTTON_X = 113
-    DEVICE_STATUS_BUTTON_Y = 1384
-    DEVICE_STATUS_COLOR_HOLD = (176, 28, 58)  # 暂停状态颜色 (红色)
-    DEVICE_STATUS_COLOR_RUN = (77, 133, 72)   # 运行状态颜色 (绿色)
+    DEVICE_STATUS_BUTTON_X = DEVICE_STATUS_BUTTON['x']
+    DEVICE_STATUS_BUTTON_Y = DEVICE_STATUS_BUTTON['y']
+    DEVICE_STATUS_COLOR_HOLD = DEVICE_STATUS_BUTTON['color_hold']  # 暂停状态颜色 (红色)
+    DEVICE_STATUS_COLOR_RUN = DEVICE_STATUS_BUTTON['color_run']   # 运行状态颜色 (绿色)
 
     def __init__(self):
         # 使用驱动管理器获取驱动实例

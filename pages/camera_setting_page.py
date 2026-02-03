@@ -16,7 +16,7 @@ import time
 import pyautogui as pg
 
 # 导入配置文件中的路径
-from config.config import SCREENSHOTS_DIR
+from config.config import SCREENSHOTS_DIR, DEVICE_STATUS_BUTTON
 
 
 
@@ -40,11 +40,11 @@ class CameraSettingPage:
     def _initialize_device_status(self):
         """单例初始化时自动检查设备状态 - CameraSettingPage需要确保设备处于运行状态"""
         time.sleep(1)
-        device_status_button_x = 113
-        device_status_button_y = 1384
+        device_status_button_x = DEVICE_STATUS_BUTTON['x']
+        device_status_button_y = DEVICE_STATUS_BUTTON['y']
         device_status_button_color = pg.pixel(device_status_button_x, device_status_button_y)
-        device_status_button_color_hold = (176, 28, 58)   # 运行状态颜色 (绿色)
-        device_status_button_color_run = (77, 133, 72)  # 暂停状态颜色 (红色)
+        device_status_button_color_hold = DEVICE_STATUS_BUTTON['color_hold']   # 暂停状态颜色 (红色)
+        device_status_button_color_run = DEVICE_STATUS_BUTTON['color_run'] # 运行状态颜色 (绿色)
 
         # Camera页面需要确保设备处于运行状态
         if device_status_button_color == device_status_button_color_hold:

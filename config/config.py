@@ -32,3 +32,11 @@ NAVIGATION_PATHS = {
     'read': 'read',
     'save': 'save'
 }
+
+# 设备状态按钮配置
+DEVICE_STATUS_BUTTON = {
+    'x': 113,
+    'y': 1384,
+    'color_hold': (176, 28, 58),  # 暂停状态颜色 (红色)
+    'color_run': (77, 133, 72)  # 运行状态颜色 (绿色)
+}

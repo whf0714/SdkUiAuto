@@ -50,7 +50,7 @@ class TestMenuFile(TestPublicMenu):
 
     def test_file_08_save_all(self):
         """验证保存所有文件并弹窗提示"""
-        file_name = "UI_SaveFile_"+now
+        file_name = "UI_SaveAllFile_"+now
         file_action = lambda: self.menu_page.save_all_file(file_name)
         self.verify_save_all_prompt(file_action, "保存成功", "save_all", timeout=100)
 
