@@ -41,7 +41,7 @@ SdkUiAuto/
 ### 2. 安装依赖
 
 ```bash
-pip install -r requirements.txt
+   pip install -i https://pypi.tuna.tsinghua.edu.cn/simple  -r requirements.txt
 ```
 
 ### 3. 配置 SDK 路径

@@ -2,10 +2,10 @@ from appium import webdriver
 
 server_url = 'http://127.0.0.1:4723'
 # app_path = r"D:\MegaPhase\SoftWare\SDK\sdk582\582\02_Binary\01_SizectorS_ControlCenter\MPSizectorS_ControlCenter.exe"
-app_path = r"D:\MegaPhase\SoftWare\SDK\sdk2773\2773\02_Binary\01_SizectorS_ControlCenter\MPSizectorS_ControlCenter.exe"
+app_path = r"D:\megaphase\soft\SDK\SDK2776\2776\02_Binary\01_SizectorS_ControlCenter\MPSizectorS_ControlCenter.exe"
 
 # app_working_dir = r"D:\MegaPhase\SoftWare\SDK\sdk582\582\02_Binary\01_SizectorS_ControlCenter"
-app_working_dir = r"D:\MegaPhase\SoftWare\SDK\sdk2773\2773\02_Binary\01_SizectorS_ControlCenter"
+app_working_dir = r"D:\megaphase\soft\SDK\SDK2776\2776\02_Binary\01_SizectorS_ControlCenter"
 
 
 
